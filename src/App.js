@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { AddTransaction } from './components/AddTransaction';
-import { TransactionList } from './components/TransactionList';
-import { Balance } from './components/Balance';
-import { FilterTransactions } from './components/FilterTransactions';
+import { AddTransaction } from './components/TransactionInput/AddTransaction';
+import { TransactionList } from './components/TransactionList/TransactionList';
+import { Balance } from './components/Balance/Balance';
 import styled from 'styled-components';
+import { AppState } from './context/AppState';
 
 const AppContainer = styled.div`
 display: flex;
@@ -32,24 +32,16 @@ h1 {
 `
 
 function App() {
-  const [transactions, setTransactions] = useState([]);
-
-  const addTransaction = (transaction) => {
-    const newTransaction = { ...transaction }
-    setTransactions((prevState) => {
-      return [newTransaction, ...prevState]
-    })
-  };
-
-
 
   return (
     <>
       <AppContainer>
         <h1>Expense Tracker</h1>
-        <Balance transactions={transactions} />
-        <AddTransaction onAdd={addTransaction} />
-        <TransactionList transactions={transactions} />
+        <AppState>
+          <Balance />
+          <AddTransaction />
+          <TransactionList />
+        </AppState>
       </AppContainer>
     </>
   );

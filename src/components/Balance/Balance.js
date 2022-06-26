@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../../context/app-context';
 import styled from 'styled-components';
 import { BalanceExpense } from './BalanceExpense';
 import { BalanceIncome } from './BalanceIncome';
@@ -20,11 +21,12 @@ align-items: center;
 border: 1px solid black;
 border-radius: 0.25rem;
 height: 5rem;
-
-
 `
 
-export const Balance = ({ transactions }) => {
+
+export const Balance = () => {
+    const { transactions } = useContext(AppContext);
+
     const amounts = transactions.map(transaction => transaction.amount);
     const total = amounts.reduce((acc, amount) => (acc += amount), 0).toFixed(2);
     return (

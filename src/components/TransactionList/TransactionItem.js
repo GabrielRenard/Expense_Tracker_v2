@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { TransactionItemText } from './TransactionItemText';
 import { TransactionItemDate } from './TransactionItemDate';
@@ -33,28 +33,20 @@ margin: 0.5rem 0;
 cursor: pointer;
 width: 100%;
 
-opacity: ${props => props.selected ? '0.5' : 1}
+opacity: ${props => props.selected ? '0.5' : '1'};
+
 `
 
-export const TransactionItem = ({ transaction, deleteTransaction, key }) => {
-    const [selected, setSelected] = useState(false);
-
-    const selectedItem = () => {
-        setSelected(!selected);
-    }
-
-    const deleteItem = () => {
-        deleteTransaction(transaction.id)
-    }
+export const TransactionItem = ({ transaction, clickToDelete, clickToToggle, selected }) => {
 
     return (
         <TransactionItemContainer>
-            <Container onClick={selectedItem} selected={selected}>
+            <Container onClick={clickToToggle} selected={selected}>
                 <TransactionItemDate date={transaction.date} />
                 <TransactionItemText text={transaction.text} />
                 <TransactionItemAmount amount={transaction.amount} />
             </Container>
-            <MdDelete className='delete-icon' onClick={deleteItem} />
+            <MdDelete className='delete-icon' onClick={clickToDelete} />
         </TransactionItemContainer>
     )
 }
