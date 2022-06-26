@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AddTransaction } from './components/AddTransaction';
 import { TransactionList } from './components/TransactionList';
 import { Balance } from './components/Balance';
+import { FilterTransactions } from './components/FilterTransactions';
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
@@ -28,19 +29,18 @@ h1 {
 @media screen and (max-width: 576px) {
   width: 90vw;
 }
-
-
 `
 
 function App() {
   const [transactions, setTransactions] = useState([]);
 
   const addTransaction = (transaction) => {
-    const newTransaction = { ...transaction, id: Math.random().toString() }
+    const newTransaction = { ...transaction }
     setTransactions((prevState) => {
       return [newTransaction, ...prevState]
     })
   };
+
 
 
   return (
