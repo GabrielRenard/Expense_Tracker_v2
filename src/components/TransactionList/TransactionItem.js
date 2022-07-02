@@ -8,6 +8,8 @@ import { MdDelete } from 'react-icons/md';
 const TransactionItemContainer = styled.div`
 display: flex;
 align-items: center;
+color: ${({ theme }) => theme.colors.backgroundBody};
+
 
 .delete-icon {
         margin: auto 8px auto 16px;
@@ -26,14 +28,21 @@ const Container = styled.div`
 display: flex;
 align-items: center;
 gap: 0.5rem;
-border: 1px solid #000;
 border-radius: 0.25rem;
 padding: 3px;
 margin: 0.5rem 0;
 cursor: pointer;
 width: 100%;
+border: 1px solid ${({ theme }) => theme.colors.border};
+border-radius: 0.25rem;
+background: ${({ theme }) => theme.colors.backgroundBody};
+color: ${({ theme }) => theme.colors.textPrimary};
+opacity: ${props => props.selected ? '0.3' : '1'};
+transition: 0.25s ease;
 
-opacity: ${props => props.selected ? '0.5' : '1'};
+background: #404040;
+box-shadow: inset 4px 4px 7px #232323,
+            inset -4px -4px 7px #5d5d5d;
 
 `
 

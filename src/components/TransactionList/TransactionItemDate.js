@@ -5,9 +5,12 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #000;
+    padding: 10px;
     border-radius: 0.25rem;
-    padding: 3px;
+    box-shadow: inset 4px 4px 7px #232323,
+            inset -4px -4px 7px #5d5d5d;
+    color: ${({ theme }) => theme.colors.backgroundBody};
+    margin: 5px;
 
     .month {
         font-size: 12px;
@@ -18,6 +21,62 @@ const Container = styled.div`
     .year {
         font-size: 12px;
     }
+
+    @media screen and (max-width: 2000px) {
+        .month {
+        font-size: 18px;
+    }
+    .day {
+        font-size: 22px;
+    }
+    .year {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .month {
+        font-size: 16px;
+    }
+    .day {
+        font-size: 20px;
+    }
+    .year {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .month {
+        font-size: 16px;
+    }
+    .day {
+        font-size: 20px;
+    }
+    .year {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .month {
+        font-size: 14px;
+    }
+    .day {
+        font-size: 18px;
+    }
+    .year {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 576px) {
+  .month {
+        font-size: 12px;
+    }
+    .day {
+        font-size: 16px;
+    }
+    .year {
+        font-size: 12px;
+    }
+}
 `
 
 export const TransactionItemDate = ({ date }) => {

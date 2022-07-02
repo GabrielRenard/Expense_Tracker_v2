@@ -6,7 +6,7 @@ import { ADD_TRANSACTION, DELETE_TRANSACTION, FILTER_YEAR, TOGGLE_TRANSACTION } 
 
 export const AppState = ({ children }) => {
     const initialState = {
-        transactions: [],
+        transactions: []
     }
 
     const [state, dispatch] = useReducer(appReducer, initialState);
@@ -50,8 +50,9 @@ export const AppState = ({ children }) => {
             deleteTransaction,
             toggleTransaction,
             filterYear,
-        }}>
+        }
+        }>
             {children}
-        </AppContext.Provider>
+        </AppContext.Provider >
     )
 }

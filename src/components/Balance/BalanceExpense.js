@@ -5,10 +5,13 @@ const Container = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-width: 100vw;
+width: 100%;
+gap: 0.25rem;
+
 
 .negative {
-    color: red;
+    color: ${({ theme }) => theme.colors.negative};
+    font-weight: 600;
 }
 `
 
